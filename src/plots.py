@@ -36,6 +36,7 @@ def plot_weekly_sales_with_rolling_stats(sku_weekly_sales, sku_name, title_suffi
 
 def plot_model_comparison(models, wape_scores):
     plt.figure(figsize=(12, 6))
+    
     plt.bar(models, wape_scores, color=["skyblue", "salmon", "lightgreen", "purple"])
     plt.xlabel("Model")
     plt.ylabel("WAPE (%)")
