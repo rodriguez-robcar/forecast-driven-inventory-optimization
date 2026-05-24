@@ -1,5 +1,49 @@
 import matplotlib.pyplot as plt
 
+# Visualize the cumulative revenue percentage to show the Pareto distribution
+def plot_pareto_sales(df):
+    plt.figure(figsize=(14, 6))
+
+    plt.plot(
+        range(1, len(df) + 1),
+        df["cum_pct"],
+        linestyle="-",
+        color="blue",
+        linewidth=2
+    )
+
+    plt.axhline(
+        y=0.8,
+        color="red",
+        linestyle="--",
+        label="80% Revenue Threshold"
+    )
+
+    plt.title("Pareto Revenue Concentration Across Products")
+    plt.xlabel("Number of Products")
+    plt.ylabel("Cumulative Revenue Percentage")
+    plt.xlim(0, len(df))
+    plt.ylim(0, 1.05)
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.legend()
+    plt.show()
+
+# Plot the weekly sales comparison
+def plot_weekly_sales_comparison(*args):
+    plt.figure(figsize=(14, 6))
+    
+    for sales_data, label in args:
+        plt.plot(sales_data["InvoiceDate"], sales_data["Revenue"], label=label, marker='o', markersize=4, alpha=0.7, color=["blue", "red", "green"][len(plt.gca().lines) % 3])
+    
+    plt.title("Weekly Revenue Comparison")
+    plt.xlabel("Sales Date")
+    plt.ylabel("Total Revenue")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.tight_layout()
+    plt.show()
+
+# Visualize the weekly sales along with rolling mean and standard deviation for a specific SKU
 def plot_weekly_sales_with_rolling_stats(sku_weekly_sales, sku_name, title_suffix=""):
     plt.figure(figsize=(10, 5))
     
@@ -34,6 +78,7 @@ def plot_weekly_sales_with_rolling_stats(sku_weekly_sales, sku_name, title_suffi
     plt.legend()
     plt.show()
 
+# Visualize the comparison of WAPE scores across different forecasting models
 def plot_model_comparison(models, wape_scores):
     plt.figure(figsize=(12, 6))
     
@@ -50,19 +95,3 @@ def plot_model_comparison(models, wape_scores):
     
     plt.tight_layout()
     plt.show()
-
-'''
-def plot_feature_importance(model, feature_names, top_n=20):
-    importance = model.feature_importances_
-    feature_importance_df = pd.DataFrame({
-        "feature": feature_names,
-        "importance": importance
-    }).sort_values(by="importance", ascending=False).head(top_n)
-    
-    plt.figure(figsize=(10, 6))
-    plt.barh(feature_importance_df["feature"], feature_importance_df["importance"], color="skyblue")
-    plt.xlabel("Importance")
-    plt.title("Top Feature Importances")
-    plt.gca().invert_yaxis()
-    plt.show()
-'''
