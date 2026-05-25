@@ -176,6 +176,9 @@ This enables forecast-informed replenishment planning under uncertainty.
 │   ├── 03_modeling.ipynb
 │   └── 04_inventory_optimization.ipynb
 │
+├── sql/
+│   └── analytical_queries.sql
+│
 ├── src/
 │   ├── features.py
 │   └── plots.py
@@ -198,6 +201,7 @@ Languages and libraries:
 - CatBoost
 - LightGBM
 - XGBoost
+- SQL
 
 #
 
