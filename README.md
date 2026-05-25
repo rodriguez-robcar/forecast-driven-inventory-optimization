@@ -192,16 +192,8 @@ This enables forecast-informed replenishment planning under uncertainty.
 
 ### Tech Stack
 
-Languages and libraries:
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-learn
-- CatBoost
-- LightGBM
-- XGBoost
-- SQL
+`Python` · `Pandas` · `NumPy` · `Matplotlib` · `Scikit-learn` · `CatBoost` · `XGBoost` · `LightGBM` · `SQL`
+
 
 #
 
